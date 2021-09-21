@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codemirror Dark Documention Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <link rel="shortcut icon" href="Img/Favicon.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <a class="follow-me" href="https://www.twitter.com/didasoff" target="_blank"><i class="fab fa-twitter-square"></i> didasoff</a>
+    <section class="continer">
+        <h1 class="main-heading">Codemirror Dark Theme</h1>
+        <p class="main-para">Codemirror dark theme documentation page for how to create a simple code editor using codemirror.net</p>
+
+        <div class="step">
+            <p class="step-heading"><i class="fas fa-info-circle"></i> Step : 1</p>
+            <p class="step-para">Copy the codemirror cdn link and paste it on your html head tag</p>
+            <pre><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://www.codemirror-documentation.heratech.xyz/main-dark-codemirror.css&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://codemirror.net/lib/codemirror.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://codemirror.net/mode/xml/xml.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://codemirror.net/mode/css/css.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://codemirror.net/mode/javascript/javascript.js&quot;&gt;&lt;/script&gt;</code></pre>
+        </div>
+
+        <div class="step">
+            <p class="step-heading"><i class="fas fa-info-circle"></i> Step : 2</p>
+            <p class="step-para">Create 3 div element and set any classes just like first div
+                <code class="step-show-code">class="code-editor"</code> second div
+                <code class="step-show-code">class="editor"</code> <br>third div
+                <code class="step-show-code">class="html-code"</code> you can add any name of every div. The last div called html-code means the filed was created for HTML code write you can add css and js code field just set the name of class <code class="step-show-code">class="css-code"</code>                or <code class="step-show-code">class="js-code"</code></p>
+            <pre><code>&lt;div class=&quot;code-editor&quot;&gt;
+    &lt;div class=&quot;editor&quot;&gt;
+        &lt;div class=&quot;html-code&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;css-code&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;js-code&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <div class="step">
+            <p class="step-heading"><i class="fas fa-info-circle"></i> Step : 3</p>
+            <p class="step-para">Create a html button and set any id just like <code class="step-show-code">id="run-button"</code></p>
+            <pre><code>&lt;button id=&quot;run-button&quot;&gt;Run&lt;/button&gt;</code></pre>
+        </div>
+
+        <div class="step">
+            <p class="step-heading"><i class="fas fa-info-circle"></i> Step : 4</p>
+            <p class="step-para">Create a iframe and set any id just like <code class="step-show-code">id="show-code"</code></p>
+            <pre><code>&lt;iframe id=&quot;show-code&quot;&gt;&lt;/iframe&gt;</code></pre>
+        </div>
+
+        <div class="step">
+            <p class="step-heading"><i class="fas fa-info-circle"></i> Step : 5</p>
+            <p class="step-para">Create a js file or add js code on your html code note when you copy this js file and paste in your js file then check all classes or id then save the js file and connect on your html file or direct paste on your html code</p>
+            <pre><code><xmp>const htmlEditor = CodeMirror(document.querySelector(".code-editor .editor .html-code"), {
+    lineNumbers: true,
+    tabSize: 4,
+    mode: "xml"
+});
+const cssEditor = CodeMirror(document.querySelector(".code-editor .editor .css-code"), {
+    lineNumbers: true,
+    tabSize: 4,
+    mode: "css"
+});
+const jsEditor = CodeMirror(document.querySelector(".code-editor .editor .js-code"), {
+    lineNumbers: true,
+    tabSize: 4,
+    mode: "javascript"
+});
+            
+document.querySelector("#run-button").addEventListener("click", function() {
+    let htmlCode = htmlEditor.getValue();
+    let cssCode = "<style>" + cssEditor.getValue() + "</style>";
+    let jsCode = "<scri" + "pt>" + jsEditor.getValue() + "</scri" + "pt>";
+    let previewWindow = document.querySelector("#show-code").contentWindow.document;
+    previewWindow.open();
+    previewWindow.write(htmlCode + cssCode + jsCode);
+    previewWindow.close();
+});</xmp></code></pre>
+        </div>
+        <p class="last-para">All codemirror CDN link collect form
+            <a href="https://codemirror.net" target="_blank">codemirror.net</a>
+        </p>
+    </section>
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <script src="code-editor.js"></script>
+</body>
+
+</html>
