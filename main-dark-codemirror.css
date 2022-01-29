@@ -12,7 +12,7 @@
     height: 300px;
     color: white;
     direction: ltr;
-    overflow: auto;
+    overflow: hidden;
 }
 
 
